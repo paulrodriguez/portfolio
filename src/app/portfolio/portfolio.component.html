@@ -1,0 +1,12 @@
+<h1 class="text-center">My Work</h1>
+<div class="card-group">
+  <div class="row">
+  <div class="card col-4" *ngFor="let item of content">
+    <!--img src="..." class="card-img-top" alt="...">-->
+    <div class="card-body">
+      <h5 class="card-title"><a href="{{item.link}}">{{item.title}}</a></h5>
+      <p class="card-text">{{item.description}}</p>
+    </div>
+  </div>
+</div>
+</div>

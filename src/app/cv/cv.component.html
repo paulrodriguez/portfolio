@@ -1,3 +1,27 @@
-<p>
-  cv works!
-</p>
+<h1 class="text-center">{{title}}</h1>
+<div *ngFor="let cv of cv_data;index as i">
+  <div class="row">
+    <div class="col-12">
+      <h4><i>{{cv.title}}</i> @ <strong>{{ cv.companyName }}</strong> in {{cv.location}}</h4>
+    </div>
+    <div class="col-12">
+      <h5>{{cv.startDate}} - {{cv.endDate}}</h5>
+    </div>
+    <div class="col-12">
+      <a class=".text-primary" data-toggle="collapse"
+        href="#collapse_{{i}}" role="button" aria-expanded="false"
+        attr.aria-controls="collapse_{{ i }}">
+          More
+      </a>
+      <div class="collapse" id="collapse_{{i}}">
+        <div class="card card-body">
+          <ul>
+            <li *ngFor="let bp of cv.bulletPoints">
+              {{ bp }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

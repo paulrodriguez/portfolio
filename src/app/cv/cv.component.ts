@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { CvData } from '../data/cv';
 
 
 @Component({
@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cv.component.scss']
 })
 export class CvComponent implements OnInit {
-
+  cv_data  = CvData;
+  title = "Resume";
   constructor() { }
 
   ngOnInit() {
