@@ -1,0 +1,15 @@
+<h1 class="text-center">My Reading List</h1>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Book</th>
+      <th scope="col">Finished</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let list of reading_list" [ngClass]="{'bg-success': list.completed==true}">
+        <td>{{ list.name }}</td>
+        <td *ngIf="list.completed">{{list.date}}</td>
+        <td *ngIf="!list.completed">In Progress</td>
+      </tr>
+    </tbody>
+  </table>
