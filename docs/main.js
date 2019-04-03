@@ -39,6 +39,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _cv_cv_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cv/cv.component */ "./src/app/cv/cv.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _portfolio_portfolio_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./portfolio/portfolio.component */ "./src/app/portfolio/portfolio.component.ts");
+/* harmony import */ var _reading_list_reading_list_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./reading-list/reading-list.component */ "./src/app/reading-list/reading-list.component.ts");
+
 
 
 
@@ -48,7 +50,8 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [
     { path: 'cv', component: _cv_cv_component__WEBPACK_IMPORTED_MODULE_3__["CvComponent"] },
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"] },
-    { path: 'portfolio', component: _portfolio_portfolio_component__WEBPACK_IMPORTED_MODULE_5__["PortfolioComponent"] }
+    { path: 'portfolio', component: _portfolio_portfolio_component__WEBPACK_IMPORTED_MODULE_5__["PortfolioComponent"] },
+    { path: 'reading-list', component: _reading_list_reading_list_component__WEBPACK_IMPORTED_MODULE_6__["ReadingListComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -73,7 +76,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <nav class=\"nav-wrapper\">\n    <ul class=\"nav justify-content-center\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link active\" routerLink=\"/\">Home</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/cv\">CV</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/portfolio\">Portfolio</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"\">Blog</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"\">Reading List</a>\n  </li>\n  </ul>\n  </nav>\n  <div id=\"content\">\n  <router-outlet></router-outlet>\n  <!--<div class=\"push\"></div>-->\n  </div>\n</div>\n<footer class=\"footer-wrapper\">\n  <div>\n    <p>Built with Angular 2</p>\n  </div>\n</footer>\n"
+module.exports = "<div class=\"wrapper\">\n  <nav class=\"nav-wrapper\">\n    <ul class=\"nav justify-content-center\">\n  <li class=\"nav-item\">\n    <a class=\"nav-link active\" routerLink=\"/\">Home</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/cv\">CV</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/portfolio\">Portfolio</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"\">Blog</a>\n  </li>\n  <li class=\"nav-item\">\n    <a class=\"nav-link\" routerLink=\"/reading-list\">Reading List</a>\n  </li>\n  </ul>\n  </nav>\n  <div id=\"content\">\n  <router-outlet></router-outlet>\n  <!--<div class=\"push\"></div>-->\n  </div>\n</div>\n<footer class=\"footer-wrapper\">\n  <div>\n    <p>Built with Angular 2</p>\n  </div>\n</footer>\n"
 
 /***/ }),
 
@@ -138,6 +141,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
 /* harmony import */ var _cv_cv_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./cv/cv.component */ "./src/app/cv/cv.component.ts");
 /* harmony import */ var _portfolio_portfolio_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./portfolio/portfolio.component */ "./src/app/portfolio/portfolio.component.ts");
+/* harmony import */ var _reading_list_reading_list_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./reading-list/reading-list.component */ "./src/app/reading-list/reading-list.component.ts");
+
 
 
 
@@ -155,7 +160,8 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
                 _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
                 _cv_cv_component__WEBPACK_IMPORTED_MODULE_6__["CvComponent"],
-                _portfolio_portfolio_component__WEBPACK_IMPORTED_MODULE_7__["PortfolioComponent"]
+                _portfolio_portfolio_component__WEBPACK_IMPORTED_MODULE_7__["PortfolioComponent"],
+                _reading_list_reading_list_component__WEBPACK_IMPORTED_MODULE_8__["ReadingListComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -404,6 +410,69 @@ var PortfolioComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], PortfolioComponent);
     return PortfolioComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/reading-list/reading-list.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/reading-list/reading-list.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h1 class=\"text-center\">My Reading List</h1>\n<table class=\"table table-striped table-dark\">\n  <thead>\n    <tr>\n      <th scope=\"col\">Book</th>\n      <th scope=\"col\">Finished</th>\n    </tr>\n    <tbody>\n      <tr *ngFor=\"let list of reading_list\" [ngClass]=\"{'bg-success': list.completed==true}\">\n        <td>{{ list.name }}</td>\n        <td *ngIf=\"list.completed\">{{list.date}}</td>\n        <td *ngIf=\"!list.completed\">In Progress</td>\n      </tr>\n    </tbody>\n  </table>\n"
+
+/***/ }),
+
+/***/ "./src/app/reading-list/reading-list.component.scss":
+/*!**********************************************************!*\
+  !*** ./src/app/reading-list/reading-list.component.scss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlYWRpbmctbGlzdC9yZWFkaW5nLWxpc3QuY29tcG9uZW50LnNjc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/reading-list/reading-list.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/reading-list/reading-list.component.ts ***!
+  \********************************************************/
+/*! exports provided: ReadingListComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReadingListComponent", function() { return ReadingListComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var ReadingListComponent = /** @class */ (function () {
+    function ReadingListComponent() {
+        this.reading_list = [
+            { name: "The Google Resume", completed: true, date: "January 2019" },
+            { name: "Agile project management with Kanban", completed: true, date: "February 2019" },
+            { name: "The lean startup", completed: true, date: "February 2019" },
+            { name: "21 Lessons for the 21st century", completed: true, date: "March 2019" },
+            { name: "Deep work", completed: false }
+        ];
+    }
+    ReadingListComponent.prototype.ngOnInit = function () {
+    };
+    ReadingListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-reading-list',
+            template: __webpack_require__(/*! ./reading-list.component.html */ "./src/app/reading-list/reading-list.component.html"),
+            styles: [__webpack_require__(/*! ./reading-list.component.scss */ "./src/app/reading-list/reading-list.component.scss")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+    ], ReadingListComponent);
+    return ReadingListComponent;
 }());
 
 
