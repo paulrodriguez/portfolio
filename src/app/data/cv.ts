@@ -34,6 +34,20 @@ workload by 90%.`,
       `Implemented appointment scheduling feature for in-store fittings that increased traffic and
 sales for retail stores.`
     ]
+  },
+  {
+    title: "Web Developer",
+    startDate: "September 2014",
+    endDate: "May 2015",
+    location: "Los Angeles, CA",
+    companyName: "EmagidLA",
+    bulletPoints: [
+      `Skills: PHP, HTML, CSS, JavaScript, JQuery, MySQL, Git`,
+      `Architected trip booking website requiring to display real time data using caching and
+automated query computations for fast load times and accurate information.`,
+      `Optimized search functionality for a restaurant website, leading to better performance
+and better accurate results.`
+    ]
   }
 
 ];

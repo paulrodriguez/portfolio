@@ -13,7 +13,8 @@ export class ReadingListComponent implements OnInit {
    {name: "Agile project management with Kanban",completed: true,date: "February 2019"},
    {name: "The lean startup", completed: true, date:"February 2019"},
    {name: "21 Lessons for the 21st century", completed: true, date: "March 2019"},
-   {name: "Deep work", completed: false}
+   {name: "Deep work", completed: false},
+   {name: "How to solve it", completed: false}
    ];
 
   constructor() { }

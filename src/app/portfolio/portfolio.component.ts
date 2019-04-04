@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
+
   content = [
     {
       title: "Next Level Apparel",

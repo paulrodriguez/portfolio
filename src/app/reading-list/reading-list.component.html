@@ -6,7 +6,7 @@
       <th scope="col">Finished</th>
     </tr>
     <tbody>
-      <tr *ngFor="let list of reading_list" [ngClass]="{'bg-success': list.completed==true}">
+      <tr *ngFor="let list of reading_list" [ngClass]="{'bg-success': list.completed==true,'bg-warning': list.completed==false}">
         <td>{{ list.name }}</td>
         <td *ngIf="list.completed">{{list.date}}</td>
         <td *ngIf="!list.completed">In Progress</td>
