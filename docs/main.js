@@ -185,7 +185,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"text-center\">{{title}}</h1>\n<div *ngFor=\"let cv of cv_data;index as i\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <h4><i>{{cv.title}}</i> @ <strong>{{ cv.companyName }}</strong> in {{cv.location}}</h4>\n    </div>\n    <div class=\"col-12\">\n      <h5>{{cv.startDate}} - {{cv.endDate}}</h5>\n    </div>\n    <div class=\"col-12\">\n      <a class=\".text-primary\" data-toggle=\"collapse\"\n        href=\"#collapse_{{i}}\" role=\"button\" aria-expanded=\"false\"\n        attr.aria-controls=\"collapse_{{ i }}\">\n          More\n      </a>\n      <div class=\"collapse\" id=\"collapse_{{i}}\">\n        <div class=\"card card-body\">\n          <ul>\n            <li *ngFor=\"let bp of cv.bulletPoints\">\n              {{ bp }}\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h1 class=\"text-center\">{{title}}</h1>\n<h2>Skills</h2>\n<div *ngFor=\"let skill of skills\" class=\"row\">\n  <div class=\"col-12\">\n    <h5>{{ skill.type}}</h5>\n  </div>\n  <div calss=\"col-12 ml-3\">\n    {{ skill.list.join(\", \") }}\n  </div>\n</div>\n<h2>Experience</h2>\n<div *ngFor=\"let cv of cv_data;index as i\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <h4><i>{{cv.title}}</i> @ <strong>{{ cv.companyName }}</strong> in {{cv.location}}</h4>\n    </div>\n    <div class=\"col-12\">\n      <h5>{{cv.startDate}} - {{cv.endDate}}</h5>\n    </div>\n    <div class=\"col-12\">\n      <a class=\".text-primary\" data-toggle=\"collapse\"\n        href=\"#collapse_{{i}}\" role=\"button\" aria-expanded=\"false\"\n        attr.aria-controls=\"collapse_{{ i }}\">\n          More\n      </a>\n      <div class=\"collapse\" id=\"collapse_{{i}}\">\n        <div class=\"card card-body\">\n          <ul>\n            <li *ngFor=\"let bp of cv.bulletPoints\">\n              {{ bp }}\n            </li>\n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<h2>Education</h2>\n<div *ngFor=\"let school of education\">\n  <div class=\"row\">\n    <div class=\"col-12\">\n      <h4>{{ school.schoolName }}</h4>\n    </div>\n  </div>\n  <div class=\"row\">\n    <div class=\"col-6\">\n      {{ school.degree }}\n    </div>\n    <div class=\"col-6\">\n      {{ school.startDate + ' - ' + school.endDate }}\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -218,6 +218,36 @@ __webpack_require__.r(__webpack_exports__);
 
 var CvComponent = /** @class */ (function () {
     function CvComponent() {
+        this.skills = [
+            {
+                type: "Frontend",
+                list: ["JavaScript", "CSS/CSS3", "HTML/HTML5", "jQuery", "React", "Vue"]
+            },
+            {
+                type: "Backend",
+                list: ["PHP", "Python", "Java"]
+            },
+            {
+                type: "Tools",
+                list: ["Git", "Grunt"]
+            },
+            {
+                type: "Databases",
+                list: ["MySQL"]
+            },
+            {
+                type: "Platforms",
+                list: ["Magento 1"]
+            },
+        ];
+        this.education = [
+            {
+                schoolName: "University of California, Los Angeles",
+                startDate: 2008,
+                endDate: 2013,
+                degree: "Bachelors of Science, Mathematics of Computation"
+            }
+        ];
         this.cv_data = _data_cv__WEBPACK_IMPORTED_MODULE_2__["CvData"];
         this.title = "Resume";
     }
@@ -275,6 +305,18 @@ var CvData = [
             "Enhanced website with RMA feature to speed up internal processing of returns and\ngather data to find ways to improve products for better sales.",
             "Automated creation of shipment tracking information in the website that reduced manual\nworkload by 90%.",
             "Implemented appointment scheduling feature for in-store fittings that increased traffic and\nsales for retail stores."
+        ]
+    },
+    {
+        title: "Web Developer",
+        startDate: "September 2014",
+        endDate: "May 2015",
+        location: "Los Angeles, CA",
+        companyName: "EmagidLA",
+        bulletPoints: [
+            "Skills: PHP, HTML, CSS, JavaScript, JQuery, MySQL, Git",
+            "Architected trip booking website requiring to display real time data using caching and\nautomated query computations for fast load times and accurate information.",
+            "Optimized search functionality for a restaurant website, leading to better performance\nand better accurate results."
         ]
     }
 ];
@@ -423,7 +465,7 @@ var PortfolioComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1 class=\"text-center\">My Reading List</h1>\n<table class=\"table table-striped table-dark\">\n  <thead>\n    <tr>\n      <th scope=\"col\">Book</th>\n      <th scope=\"col\">Finished</th>\n    </tr>\n    <tbody>\n      <tr *ngFor=\"let list of reading_list\" [ngClass]=\"{'bg-success': list.completed==true}\">\n        <td>{{ list.name }}</td>\n        <td *ngIf=\"list.completed\">{{list.date}}</td>\n        <td *ngIf=\"!list.completed\">In Progress</td>\n      </tr>\n    </tbody>\n  </table>\n"
+module.exports = "<h1 class=\"text-center\">My Reading List</h1>\n<table class=\"table table-striped table-dark\">\n  <thead>\n    <tr>\n      <th scope=\"col\">Book</th>\n      <th scope=\"col\">Finished</th>\n    </tr>\n    <tbody>\n      <tr *ngFor=\"let list of reading_list\" [ngClass]=\"{'bg-success': list.completed==true,'bg-warning': list.completed==false}\">\n        <td>{{ list.name }}</td>\n        <td *ngIf=\"list.completed\">{{list.date}}</td>\n        <td *ngIf=\"!list.completed\">In Progress</td>\n      </tr>\n    </tbody>\n  </table>\n"
 
 /***/ }),
 
@@ -459,7 +501,8 @@ var ReadingListComponent = /** @class */ (function () {
             { name: "Agile project management with Kanban", completed: true, date: "February 2019" },
             { name: "The lean startup", completed: true, date: "February 2019" },
             { name: "21 Lessons for the 21st century", completed: true, date: "March 2019" },
-            { name: "Deep work", completed: false }
+            { name: "Deep work", completed: false },
+            { name: "How to solve it", completed: false }
         ];
     }
     ReadingListComponent.prototype.ngOnInit = function () {
