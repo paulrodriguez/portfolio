@@ -1,3 +1,53 @@
-<p>
-  cv works!
-</p>
+<h1 class="text-center">{{title}}</h1>
+<h2>Skills</h2>
+<div *ngFor="let skill of skills" class="row">
+  <div class="col-12">
+    <h5>{{ skill.type}}</h5>
+  </div>
+  <div calss="col-12 ml-3">
+    {{ skill.list.join(", ") }}
+  </div>
+</div>
+<h2>Experience</h2>
+<div *ngFor="let cv of cv_data;index as i">
+  <div class="row">
+    <div class="col-12">
+      <h4><i>{{cv.title}}</i> @ <strong>{{ cv.companyName }}</strong> in {{cv.location}}</h4>
+    </div>
+    <div class="col-12">
+      <h5>{{cv.startDate}} - {{cv.endDate}}</h5>
+    </div>
+    <div class="col-12">
+      <a class=".text-primary" data-toggle="collapse"
+        href="#collapse_{{i}}" role="button" aria-expanded="false"
+        attr.aria-controls="collapse_{{ i }}">
+          More
+      </a>
+      <div class="collapse" id="collapse_{{i}}">
+        <div class="card card-body">
+          <ul>
+            <li *ngFor="let bp of cv.bulletPoints">
+              {{ bp }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h2>Education</h2>
+<div *ngFor="let school of education">
+  <div class="row">
+    <div class="col-12">
+      <h4>{{ school.schoolName }}</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6">
+      {{ school.degree }}
+    </div>
+    <div class="col-6">
+      {{ school.startDate + ' - ' + school.endDate }}
+    </div>
+  </div>
+</div>

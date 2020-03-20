@@ -1,16 +1,30 @@
-<nav>
-  <ul class="nav justify-content-center">
-<li class="nav-item">
-  <a class="nav-link active" routerLink="/">About</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" routerLink="/cv">CV</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="#">Portfolio</a>
-</li>
-</ul>
-</nav>
-<div id="content">
-<router-outlet></router-outlet>
+<div class="wrapper">
+  <nav class="nav-wrapper">
+    <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link active" routerLink="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/cv">CV</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/portfolio">Portfolio</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="">Blog</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/reading-list">Reading List</a>
+  </li>
+  </ul>
+  </nav>
+  <div id="content">
+  <router-outlet></router-outlet>
+  <!--<div class="push"></div>-->
+  </div>
 </div>
+<footer class="footer-wrapper">
+  <div>
+    <p>Built with Angular 2</p>
+  </div>
+</footer>
