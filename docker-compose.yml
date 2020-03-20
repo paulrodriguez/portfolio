@@ -12,3 +12,4 @@ services:
             - .:/srv/app
         ports:
             - 5001:5000
+            - 4200:4200
